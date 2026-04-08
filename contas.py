@@ -33,6 +33,11 @@ class ContaPoupança(Conta):
             self.detalhes(f'Saque negado: {valor_saque}')
             return self.saldo
 
+    def __repr__(self):
+        class_name = type(self).__name__
+        attrs = f'({self.agencia!r}, {self.conta!r}, {self.saldo!r})'
+        return f'{class_name}{attrs}'  
+
 class ContaCorrente(Conta):
     def __init__(self, agencia: int, conta: int, saldo: float =0, limite: float =0):
         super().__init__(agencia, conta, saldo)
